@@ -37,7 +37,7 @@ const obj4 = {5: 'a', 6: 'b'}
 // spread operator
 const obj3 = {...obj1, ...obj2}
 
-console.log(obj3);
+// console.log(obj3);
 
 
 const users = [
@@ -59,12 +59,40 @@ const users = [
     },
 ]
 
-console.log(users[1].email);
-console.log(tinderUser);
+// console.log(users[1].email);
+// console.log(tinderUser);
 
-// to get all keys from object, we use Object.keys() - for value, we use - Object.values(). The datatype od output is Array.
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// // to get all keys from object, we use Object.keys() - for value, we use - Object.values(). The datatype od output is Array.
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 
-console.log((tinderUser.hasOwnProperty('isLoggedIn')));
+// console.log((tinderUser.hasOwnProperty('isLoggedIn')));
+
+const course = {
+    coursename: 'js in hind',
+    price: '999',
+    courseInstructor: "harsh"
+}
+
+// Object Destructoring
+// course.courseInstructor - instead of calling object values like this multiple times, we can proceed as below:
+
+// const {courseInstructor} = course 
+// console.log(courseInstructor); // 
+
+const {courseInstructor: instructor} = course // we can remane the keys to get values in objects
+console.log(instructor);
+
+// JSON api
+
+// {
+//     name: 'harsh',
+//     coursename: 'js in hindi',
+//     price: 'free'
+// }
+
+// tools - random user api, json formatter 
+// https://jsonformatter.org/
+// https://randomuser.me/
+
