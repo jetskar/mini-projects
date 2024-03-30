@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colo Changer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Color Changer</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const start = document.getElementById('start')
+    const stop = document.getElementById('stop')
+    const body = document.querySelector('body')
+
+    let randomColor = ()=>{
+        let hex = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += hex[parseInt(Math.random() * 16)]
+       }
+       return color
+    }
+
+    let intervalId;
+
+   function changeColor() {
+        body.style.backgroundColor = randomColor();   
+        // console.log(`Color Changed ${randomColor()}`);
+    }
+
+    start.addEventListener('click', (e)=>{
+        if(!intervalId){
+            intervalId = setInterval(changeColor, 1500);
+        }
+    })
+
+    stop.addEventListener('click', (e) => {
+        clearInterval(intervalId)
+        // console.log(`Stop Color Change`);
+        intervalId = null;
+    })
+
+</script>
+</html>
