@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:#7d7878; font-size: 15px;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+
+
+</body>
+<script>
+//     const requestUrl = 'https://api.github.com/users/jetskar'
+//    const xhr = new XMLHttpRequest();
+//     xhr.open('GET', requestUrl);
+//     xhr.onreadystatechange = function() {
+//         console.log(xhr.readyState); 
+//         if (xhr.readyState === 4) {
+//             const data = JSON.parse(this.responseText);
+//             console.log(typeof data);
+//             console.log(data.followers);
+//         }
+//     }
+//     // console.log('HERE');
+//     xhr.send()
+    //////////////// Exercise - Through Api Request, created a div with button to show avatar image and name from api.
+    
+
+    const requestUrl = 'https://api.github.com/users/jetskar';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    // console.log(xhr.readyState);
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+            console.log(data.avatar_url);
+            console.log(data.name);
+            const newDiv = document.createElement('div');
+            const newButton = document.createElement('button')
+            newDiv.innerHTML = `<h2>Hello</h2>`;
+            newDiv.style.width = `1000px`;
+            newDiv.style.height = `900px`;
+            newDiv.style.backgroundColor = `lightgreen`;
+            newDiv.style.color = `blue`;
+            newDiv.className = 'apiCard';
+            document.body.prepend(newDiv);
+            newButton.textContent = 'Click Here'
+            newDiv.appendChild(newButton);
+            newButton.addEventListener('click', function(e){
+                newDiv.innerHTML += `<p>${data.name}</p>
+                <a href="${data.avatar_url}"><img src="${data.avatar_url}">URL</a>`
+            } )
+
+        }   
+    }
+    xhr.send()
+</script>
+</html>
