@@ -98,4 +98,3 @@ fetch('https://api.github.com/users/jetskar')
 })
 .catch((error) => console.log(error))
 
-
