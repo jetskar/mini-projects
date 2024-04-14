@@ -1,5 +1,5 @@
 let myName = 'harsh    ';
-let mychannel0 = 'chai        ';
+let mychannel = 'chai        ';
 
 // console.log(myName.length);
 // console.log(myName.truelength);
@@ -32,7 +32,7 @@ Array.prototype.heyHarsh = function() {
 
 const User = {
     user: 'chai',
-    emai: 'google.com'
+    email: 'google.com'
 }
 
 const Teacher = {
